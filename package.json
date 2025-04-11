@@ -17,6 +17,7 @@
     "analyze": "source-map-explorer dist/angular-starter/**/*.js",
     "prettier": "prettier --write \"src/app/**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "prepare": "husky install",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "serve:ssr:innoit-prime-ng-assignment": "node dist/innoit-prime-ng-assignment/server/server.mjs"
   },
@@ -56,6 +57,7 @@
     "@types/node": "^18.18.0",
     "@typescript-eslint/eslint-plugin": "8.21.0",
     "@typescript-eslint/parser": "8.21.0",
+    "auto-changelog": "^2.5.0",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-jsdoc": "^50.6.3",
