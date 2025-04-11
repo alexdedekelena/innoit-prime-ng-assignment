@@ -1,6 +1,7 @@
 # InnoitPrimeNgAssignment
 
 A learning experience using Prime NG for first time based on InnoIt requested assignment
+It contains some angular-started features based on an existing project: [Angular Starter] (https://github.com/wlucha/angular-starter). Thanks to [Wilfried Lucha](https://github.com/wlucha) for simplify Jest, Linter, Prettier and Cypress initial config time in Angular 19
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
 
@@ -40,7 +41,7 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 ## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To execute unit tests with the [Jest](https://github.com/jestjs/jest) test runner, use the following command:
 
 ```bash
 ng test
