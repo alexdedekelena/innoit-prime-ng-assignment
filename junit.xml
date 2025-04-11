@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="1.739">
+  <testsuite name="AppComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-11T12:08:21" time="0.734" tests="3">
+    <testcase classname="AppComponent should create the app" name="AppComponent should create the app" time="0.091">
+    </testcase>
+    <testcase classname="AppComponent should have the &apos;innoit-prime-ng-assignment&apos; title" name="AppComponent should have the &apos;innoit-prime-ng-assignment&apos; title" time="0.009">
+    </testcase>
+    <testcase classname="AppComponent should render title" name="AppComponent should render title" time="0.016">
+    </testcase>
+  </testsuite>
+</testsuites>
