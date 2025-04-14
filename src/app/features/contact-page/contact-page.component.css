@@ -1,3 +1,5 @@
-.contact-page-background-image {
-  background-image: url(../../../assets/images/contact-page-background.png);
+:host {
+  .contact-page-background-image {
+    background-image: url(../../../assets/images/contact-page-background.png);
+  }
 }

@@ -1,22 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
+@import "assets/styles/base/body-base.css";
+@import "assets/styles/base/letter-spacing.css";
+@import "assets/styles/layout/display-grid.css";
 /* TODO: check how to locally download and import the file font instead of CDN */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
-html {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-}
-
-body {
-  margin: 0;
-  padding: 2rem;
-  min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: light-dark(var(--p-surface-0), var(--p-surface-950));
-}
