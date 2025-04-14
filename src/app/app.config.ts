@@ -9,6 +9,8 @@ import {
 } from '@angular/platform-browser';
 import { definePreset } from '@primeng/themes';
 import Lara from '@primeng/themes/lara';
+import { provideHttpClient } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
 
 // TODO: check proper place for these theming overrides
 const customPreset = definePreset(Lara, {
@@ -40,5 +42,7 @@ export const appConfig: ApplicationConfig = {
         preset: customPreset,
       },
     }),
+    provideHttpClient(),
+    MessageService,
   ],
 };
