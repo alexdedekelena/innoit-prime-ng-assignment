@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="surface-0 min-h-screen flex flex-column">
   <div class="bg-cover bg-center h-15rem w-full contact-page-background-image">
     <div
@@ -10,84 +11,137 @@
           >
           <h2 class="text-4xl">Contact Us</h2>
         </div>
-        <div class="grid">
-          <div class="col-12 md:col-6">
-            <div class="mb-3">
-              <label for="firstname" class="letter-spacing-sm block mb-2"
-                >First Name</label
-              >
-              <input
-                id="firstname"
-                type="text"
-                pInputText
-                class="w-full"
-                placeholder="James"
-              />
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="grid">
+            <div class="col-12 md:col-6">
+              <div class="mb-3">
+                <label for="firstname" class="letter-spacing-sm block mb-2"
+                  >First Name</label
+                >
+                <input
+                  id="firstname"
+                  type="text"
+                  pInputText
+                  formControlName="firstName"
+                  required
+                  minlength="2"
+                  class="w-full"
+                  placeholder="James"
+                  (focusout)="onFocusOutUpdateState('firstName')"
+                />
+                @if (
+                  contactForm.get("firstName")?.invalid &&
+                  !contactForm.get("firstName")?.pristine
+                ) {
+                  <small id="firstname-help" class="text-red-500"
+                    >Invalid First Name</small
+                  >
+                }
+              </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <div class="mb-3">
+                <label for="lastname" class="letter-spacing-sm block mb-2"
+                  >Last Name</label
+                >
+                <input
+                  id="lastname"
+                  type="text"
+                  pInputText
+                  formControlName="lastName"
+                  class="w-full"
+                  placeholder="Appleseed"
+                  (focusout)="onFocusOutUpdateState('lastName')"
+                />
+                @if (
+                  contactForm.get("lastName")?.invalid &&
+                  !contactForm.get("lastName")?.pristine
+                ) {
+                  <small id="lastName-help" class="text-red-500"
+                    >Invalid Last Name</small
+                  >
+                }
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="email" class="letter-spacing-sm block mb-2"
+                  >Email</label
+                >
+                <input
+                  id="email"
+                  type="email"
+                  pInputText
+                  formControlName="email"
+                  required
+                  class="w-full"
+                  placeholder="james.appleseed@acompany.com"
+                  (focusout)="onFocusOutUpdateState('email')"
+                />
+                @if (
+                  contactForm.get("email")?.invalid &&
+                  !contactForm.get("email")?.pristine
+                ) {
+                  <small id="email-help" class="text-red-500"
+                    >Invalid Email</small
+                  >
+                }
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="message" class="letter-spacing-sm block mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  cols="30"
+                  pTextarea
+                  formControlName="message"
+                  class="w-full"
+                  placeholder="Leave us a message..."
+                  [autoResize]="true"
+                  (focusout)="onFocusOutUpdateState('message')"
+                ></textarea>
+                @if (
+                  contactForm.get("message")?.invalid &&
+                  !contactForm.get("message")?.pristine
+                ) {
+                  <small id="message-help" class="text-red-500"
+                    >Invalid Message</small
+                  >
+                }
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="field-checkbox">
+                <p-checkbox
+                  name="agree"
+                  value="Agree"
+                  [binary]="true"
+                  formControlName="toaChecked"
+                  inputId="agree"
+                ></p-checkbox>
+                <label for="agree" class="ml-2 text-sm"
+                  >I agree to
+                  <a href="" class="text-primary">Terms of Service</a> and
+                  <a href="" class="text-primary">Privacy Policy</a></label
+                >
+              </div>
+            </div>
+            <div class="col-12">
+              <p-button
+                label="Send message"
+                type="submit"
+                class="display-grid"
+                [disabled]="
+                  !contactForm.valid || !contactForm.controls.toaChecked.value
+                "
+              ></p-button>
             </div>
           </div>
-          <div class="col-12 md:col-6">
-            <div class="mb-3">
-              <label for="lastname" class="letter-spacing-sm block mb-2"
-                >Last Name</label
-              >
-              <input
-                id="lastname"
-                type="text"
-                pInputText
-                class="w-full"
-                placeholder="Appleseed"
-              />
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="mb-3">
-              <label for="email" class="letter-spacing-sm block mb-2"
-                >Email</label
-              >
-              <input
-                id="email"
-                type="email"
-                pInputText
-                class="w-full"
-                placeholder="james.appleseed@acompany.com"
-              />
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="mb-3">
-              <label for="message" class="letter-spacing-sm block mb-2"
-                >Message</label
-              >
-              <textarea
-                id="message"
-                rows="5"
-                cols="30"
-                pTextarea
-                class="w-full"
-                placeholder="Leave us a message..."
-                [autoResize]="true"
-              ></textarea>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="field-checkbox">
-              <p-checkbox
-                name="agree"
-                value="Agree"
-                [binary]="true"
-                inputId="agree"
-              ></p-checkbox>
-              <label for="agree" class="ml-2 text-sm"
-                >I agree to
-                <a href="" class="text-primary">Terms of Service</a> and
-                <a href="" class="text-primary">Privacy Policy</a></label
-              >
-            </div>
-          </div>
-          <div class="col-12">
-            <p-button label="Send message" class="display-grid"></p-button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
