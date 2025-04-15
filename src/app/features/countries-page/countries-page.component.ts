@@ -1,87 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
+import { AddCountryDialogComponent } from './components/add-country-dialog/add-country-dialog.component';
+import { CountriesPageStateService } from '../../shared/services/state/countries-page-state.service';
 
 @Component({
   selector: 'app-countries-page',
-  imports: [ButtonModule, TableModule, ToolbarModule],
+  imports: [
+    ButtonModule,
+    TableModule,
+    ToolbarModule,
+    AddCountryDialogComponent,
+  ],
   templateUrl: './countries-page.component.html',
   styleUrl: './countries-page.component.css',
 })
 export class CountriesPageComponent {
-  countries = [
-    {
-      name: 'Barbados',
-      code: 'bb',
-      currency: 'BBD',
-      population: 287371,
-      continent: 'North America',
-      active: true,
-    },
-    {
-      name: 'Grenada',
-      code: 'gd',
-      currency: 'XCD',
-      population: 112519,
-      continent: 'North America',
-      active: true,
-    },
-    {
-      name: 'Hungary',
-      code: 'hu',
-      currency: 'HUF',
-      population: 9749763,
-      continent: 'Europe',
-      active: true,
-    },
-    {
-      name: 'Pitcairn Islands',
-      code: 'pn',
-      currency: 'NZD',
-      population: 50,
-      continent: 'Oceania',
-      active: true,
-    },
-    {
-      name: 'Sierra Leone',
-      code: 'sl',
-      currency: 'SLL',
-      population: 7976985,
-      continent: 'Africa',
-      active: true,
-    },
-    {
-      name: 'South Georgia',
-      code: 'gs',
-      currency: 'GBP',
-      population: 30,
-      continent: 'Antarctica',
-      active: true,
-    },
-    {
-      name: 'Switzerland',
-      code: 'ch',
-      currency: 'CHF',
-      population: 8654622,
-      continent: 'Europe',
-      active: true,
-    },
-    {
-      name: 'Taiwan',
-      code: 'tw',
-      currency: 'TWD',
-      population: 23503349,
-      continent: 'Asia',
-      active: true,
-    },
-    {
-      name: 'Wallis and Futuna',
-      code: 'wf',
-      currency: 'XPF',
-      population: 11750,
-      continent: 'Oceania',
-      active: true,
-    },
-  ];
+  // Services injection
+  countriesPageStateService = inject(CountriesPageStateService);
+
+  // Signals
+  countries = this.countriesPageStateService.addedCountries;
+
+  /** Navigates to google map link throuhg a new tab, without asking user he is about to navigate =)*/
+  navigatesToGoogleMap(mapLink: string) {
+    if (
+      mapLink.startsWith('https://goo.gl/maps/') ||
+      mapLink.startsWith('https://google.com/maps/')
+    ) {
+      window.open(mapLink);
+    }
+  }
 }
