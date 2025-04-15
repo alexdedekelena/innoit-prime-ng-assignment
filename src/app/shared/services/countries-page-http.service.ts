@@ -13,20 +13,24 @@ export class CountriesPageHttpService {
 
   /** Retrieves all countries throug httpClient and maps data required for table */
   getAllCountries(): Observable<CountrySummary[]> {
-    return this.http.get<CountryApiResponse[]>(`${this.baseUrl}/all`).pipe(
-      map((response) =>
-        response.map((country) => ({
-          name: country.name?.common,
-          flag: country.flags?.png,
-          currency: country.currencies
-            ? Object.getOwnPropertyNames(country.currencies)[0]
-            : '-',
-          population: country.population,
-          status: country.status,
-          map: country.maps.googleMaps,
-          continent: country.continents[0] || '-',
-        }))
-      )
-    );
+    const filterOptions =
+      '?fields=name,flags,currencies,population,status,maps,continents';
+    return this.http
+      .get<CountryApiResponse[]>(`${this.baseUrl}/all${filterOptions}`)
+      .pipe(
+        map((response) =>
+          response.map((country) => ({
+            name: country.name?.common,
+            flag: country.flags?.png,
+            currency: country.currencies
+              ? Object.getOwnPropertyNames(country.currencies)[0]
+              : '-',
+            population: country.population,
+            status: country.status,
+            map: country.maps.googleMaps,
+            continent: country.continents[0] || '-',
+          }))
+        )
+      );
   }
 }
