@@ -1,0 +1,43 @@
+<p-button
+  label="Add a country"
+  icon="pi pi-plus"
+  (click)="showDialog()"
+></p-button>
+<p-dialog
+  header="Add Country"
+  [modal]="true"
+  [(visible)]="visible"
+  [style]="{ width: '35rem', height: '32rem' }"
+>
+  <div class="display-grid display-grid-rows-8-1">
+    <form [formGroup]="countriesFormGroup">
+      <p-select
+        formControlName="selectedCountry"
+        [options]="countries()"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select a Country"
+        class="w-full md:w-56"
+      >
+        <ng-template #selectedItem let-selectedOption>
+          <div class="flex items-center gap-2">
+            <img [src]="selectedOption.flag" style="width: 18px" />
+            <div>{{ selectedOption.name }}</div>
+          </div>
+        </ng-template>
+        <ng-template let-country #item>
+          <div class="flex items-center gap-2">
+            <img [src]="country.flag" style="width: 18px" />
+            <div>{{ country.name }}</div>
+          </div>
+        </ng-template>
+      </p-select>
+    </form>
+    <div class="flex justify-content-between flex-wrap">
+      <p-button label="Cancel" severity="secondary" (click)="visible = false" />
+      <p-button label="Save" (click)="closeDialog()" />
+    </div>
+  </div>
+</p-dialog>
