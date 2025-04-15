@@ -26,19 +26,29 @@ export class CountriesPageStateService {
   listedCountries = computed(() => this.state().listedCountries);
 
   // Reducers
-  // Define how actions should update state
-  addCountry(country: CountrySummary) {
+  private addCountry(country: CountrySummary) {
     this.state.update((state) => ({
       ...state,
       addedCountries: [...state.addedCountries, country],
     }));
   }
 
-  setListedCountries(listedCountries: CountrySummary[]) {
+  private setListedCountries(listedCountries: CountrySummary[]) {
     this.state.update((state) => ({
       ...state,
       listedCountries,
     }));
+  }
+
+  private removeCountryFromListed(country: CountrySummary) {
+    this.state.update((state) => {
+      return {
+        ...state,
+        listedCountries: state.listedCountries.filter(
+          (countryInList) => countryInList.name !== country.name
+        ),
+      };
+    });
   }
 
   // Actions
@@ -50,6 +60,16 @@ export class CountriesPageStateService {
         tap((response) => this.setListedCountries(response))
       )
       .subscribe();
+  }
+
+  addCountryToProject(country: CountrySummary) {
+    const existingCountry = this.addedCountries().find(
+      (countryState) => countryState.name === country.name
+    );
+    if (!existingCountry) {
+      this.addCountry(country);
+      this.removeCountryFromListed(country);
+    }
   }
 
   resetState() {

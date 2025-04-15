@@ -34,11 +34,13 @@ export class AddCountryDialogComponent implements OnInit {
     this.visible = true;
   }
 
+  /** Gets selected country on FormGroup, triggers addCountryToProject action and reset forms before close dialog */
   closeDialog() {
     const selectedCountry =
       this.countriesFormGroup.controls.selectedCountry.value;
     if (selectedCountry) {
-      this.countriesPageStateService.addCountry(selectedCountry);
+      this.countriesPageStateService.addCountryToProject(selectedCountry);
+      this.countriesFormGroup.reset();
     }
     this.visible = false;
   }
