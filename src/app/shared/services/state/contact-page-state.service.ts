@@ -1,12 +1,12 @@
 import { computed, effect, Injectable, signal } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { ContactPageState } from '../interfaces/contact-page-state.interface';
+import { ContactPageState } from '../../interfaces/contact-page-state.interface';
 // import { ContactPageHttpService } from './contact-page-http.service';
-import { ContactPageHttpMockService } from './contact-page-http-mock.service';
-import { ContactMessageBody } from '../interfaces/contact-message.interface';
+import { ContactPageHttpMockService } from '../contact-page-http-mock.service';
+import { ContactMessageBody } from '../../interfaces/contact-message.interface';
 import { catchError, take, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { ContactPageResponse } from '../interfaces/contact-page-response.interface';
+import { ContactPageResponse } from '../../interfaces/contact-page-response.interface';
 import { toObservable } from '@angular/core/rxjs-interop';
 
 @Injectable({

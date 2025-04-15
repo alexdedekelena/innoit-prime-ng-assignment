@@ -6,10 +6,10 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { Toast } from 'primeng/toast';
-import { ContactPageStateService } from '../../shared/services/contact-page-state.service';
+import { ContactPageStateService } from '../../shared/services/state/contact-page-state.service';
 import { filter, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ContactForm } from '../../shared/interfaces/contact-form.interface';
+import { ContactForm } from './interfaces/contact-form.interface';
 
 @Component({
   selector: 'app-contact-page',
