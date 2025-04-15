@@ -57,6 +57,7 @@
     "@types/node": "^18.18.0",
     "@typescript-eslint/eslint-plugin": "8.21.0",
     "@typescript-eslint/parser": "8.21.0",
+    "@types/jest": "^29.5.14",
     "auto-changelog": "^2.5.0",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.2",
