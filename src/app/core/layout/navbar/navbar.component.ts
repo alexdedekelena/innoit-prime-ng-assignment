@@ -21,5 +21,10 @@ export class NavbarComponent {
       icon: 'pi pi-envelope',
       route: '/contact',
     },
+    {
+      label: 'Countries',
+      icon: 'pi pi-globe',
+      route: '/countries',
+    },
   ];
 }

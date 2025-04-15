@@ -1,0 +1,75 @@
+<div class="surface-card mt-4 p-8 pt-4 shadow-2 w-full">
+  <div class="grid">
+    <div class="col-12 pb-6 mb-4 border-bottom-1 border-gray-300">
+      <h1>Countries & Currencies</h1>
+      <span class="text-color-secondary"
+        >You can easily manage your countries in this page</span
+      >
+    </div>
+    <div class="col-3">
+      <div class="col-12">
+        <h2>Countries</h2>
+      </div>
+      <div class="col-12">
+        <span class="text-color-secondary"
+          >Manage your countries in this project</span
+        >
+      </div>
+      <div class="col-12">
+        <p-button label="Add a country" icon="pi pi-plus"></p-button>
+      </div>
+    </div>
+    <div class="col-9">
+      <p-table [value]="countries" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Country</th>
+            <th>Population</th>
+            <th>Continent</th>
+            <th>Status</th>
+            <th>Maps</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-country>
+          <tr>
+            <td>
+              <div class="flex align-items-center">
+                <img
+                  [src]="'assets/flags/' + country.code + '.png'"
+                  [alt]="country.name"
+                  width="30"
+                  class="mr-2"
+                />
+                <span>{{ country.name }}</span>
+                <span class="ml-1 text-sm">({{ country.currency }})</span>
+              </div>
+            </td>
+            <td>{{ country.population }}</td>
+            <td>{{ country.continent }}</td>
+            <td>
+              @if (country.active) {
+                <i class="pi pi-check-circle text-green-500"></i>
+              } @else {
+                <i class="pi pi-times-circle text-red-500"></i>
+              }
+            </td>
+            <td>
+              <p-button
+                icon="pi pi-globe"
+                styleClass="p-button-rounded p-button-secondary"
+              ></p-button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+<!-- <p-toolbar>
+    <div class="p-toolbar-group-left">
+      <h5 class="m-0">Countries & Currencies</h5>
+    </div>
+    <div class="p-toolbar-group-right">
+      <p-button label="Add a country" icon="pi pi-plus"></p-button>
+    </div>
+  </p-toolbar> -->
