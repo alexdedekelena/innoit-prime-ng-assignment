@@ -27,13 +27,17 @@
                   minlength="2"
                   class="w-full"
                   placeholder="James"
+                  data-cy="first-name-input"
                   (focusout)="onFocusOutUpdateState('firstName')"
                 />
                 @if (
                   contactForm.get("firstName")?.invalid &&
                   !contactForm.get("firstName")?.pristine
                 ) {
-                  <small id="firstname-help" class="text-red-500"
+                  <small
+                    id="firstname-help"
+                    class="text-red-500"
+                    data-cy="first-name-help"
                     >Invalid First Name</small
                   >
                 }
@@ -76,6 +80,7 @@
                   required
                   class="w-full"
                   placeholder="james.appleseed@acompany.com"
+                  data-cy="email-input"
                   (focusout)="onFocusOutUpdateState('email')"
                 />
                 @if (
@@ -101,6 +106,7 @@
                   formControlName="message"
                   class="w-full"
                   placeholder="Leave us a message..."
+                  data-cy="message-input"
                   [autoResize]="true"
                   (focusout)="onFocusOutUpdateState('message')"
                 ></textarea>
@@ -122,6 +128,7 @@
                   [binary]="true"
                   formControlName="toaChecked"
                   inputId="agree"
+                  data-cy="toa-checkbox"
                 ></p-checkbox>
                 <label for="agree" class="ml-2 text-sm"
                   >I agree to
@@ -135,6 +142,7 @@
                 label="Send message"
                 type="submit"
                 class="display-grid"
+                data-cy="send-message-button"
                 [disabled]="
                   !contactForm.valid || !contactForm.controls.toaChecked.value
                 "
