@@ -3,10 +3,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ContactPageComponent } from './contact-page.component';
 import { MessageService } from 'primeng/api';
 import { ContactPageStateService } from '../../shared/services/state/contact-page-state.service';
-import { BehaviorSubject, of } from 'rxjs';
+import { of } from 'rxjs';
 import { Component, signal } from '@angular/core';
 import { Toast } from 'primeng/toast';
-import { serialize } from 'v8';
 
 // Toast Component have 'subscribe of undefined' issue when initialized
 // Use a Mock component instead to avoid errors out of scope this component
