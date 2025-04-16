@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/contact-page/contact-page.component.css"],
+  "sourcesContent": [":host {\n  .contact-page-background-image {\n    background-image: url(../../../assets/images/contact-page-background.png);\n  }\n}\n"],
+  "mappings": ";AAAA,MACE,CAAC;AACC,oBAAkB;AACpB;",
+  "names": []
+}
