@@ -1,11 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="3" failures="0" errors="0" time="1.739">
-  <testsuite name="AppComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-11T12:08:21" time="0.734" tests="3">
-    <testcase classname="AppComponent should create the app" name="AppComponent should create the app" time="0.091">
+<testsuites name="jest tests" tests="38" failures="0" errors="0" time="6.415">
+  <testsuite name="NavbarComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:06" time="2.502" tests="1">
+    <testcase classname="NavbarComponent should create" name="NavbarComponent should create" time="0.105">
     </testcase>
-    <testcase classname="AppComponent should have the &apos;innoit-prime-ng-assignment&apos; title" name="AppComponent should have the &apos;innoit-prime-ng-assignment&apos; title" time="0.009">
+  </testsuite>
+  <testsuite name="PricingPageComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:06" time="2.548" tests="1">
+    <testcase classname="PricingPageComponent should create" name="PricingPageComponent should create" time="0.253">
     </testcase>
-    <testcase classname="AppComponent should render title" name="AppComponent should render title" time="0.016">
+  </testsuite>
+  <testsuite name="AppComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:06" time="2.566" tests="1">
+    <testcase classname="AppComponent should create the app" name="AppComponent should create the app" time="0.133">
+    </testcase>
+  </testsuite>
+  <testsuite name="PricingCardComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:06" time="2.539" tests="1">
+    <testcase classname="PricingCardComponent should create" name="PricingCardComponent should create" time="0.263">
+    </testcase>
+  </testsuite>
+  <testsuite name="ContactPageHttpService" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:08" time="0.548" tests="1">
+    <testcase classname="ContactPageHttpService postContactMessage should call http client post with url" name="ContactPageHttpService postContactMessage should call http client post with url" time="0.022">
+    </testcase>
+  </testsuite>
+  <testsuite name="HomeComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:08" time="0.51" tests="1">
+    <testcase classname="HomeComponent should create" name="HomeComponent should create" time="0.03">
+    </testcase>
+  </testsuite>
+  <testsuite name="ContactPageStateService" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:08" time="0.62" tests="10">
+    <testcase classname="ContactPageStateService set methods setFirstName should update state for firstName" name="ContactPageStateService set methods setFirstName should update state for firstName" time="0.018">
+    </testcase>
+    <testcase classname="ContactPageStateService set methods setLastName should update state for lastName" name="ContactPageStateService set methods setLastName should update state for lastName" time="0.007">
+    </testcase>
+    <testcase classname="ContactPageStateService set methods setEmail should update state for email" name="ContactPageStateService set methods setEmail should update state for email" time="0.01">
+    </testcase>
+    <testcase classname="ContactPageStateService set methods setMessage should update state for message" name="ContactPageStateService set methods setMessage should update state for message" time="0.01">
+    </testcase>
+    <testcase classname="ContactPageStateService set methods setToaChecked should update state for toaChecked" name="ContactPageStateService set methods setToaChecked should update state for toaChecked" time="0.005">
+    </testcase>
+    <testcase classname="ContactPageStateService set methods setErrorMessage should update state for errorMessage" name="ContactPageStateService set methods setErrorMessage should update state for errorMessage" time="0.004">
+    </testcase>
+    <testcase classname="ContactPageStateService set methods setSuccessMessage should update state for successMessage" name="ContactPageStateService set methods setSuccessMessage should update state for successMessage" time="0.004">
+    </testcase>
+    <testcase classname="ContactPageStateService sendContactMessage should call postContactMessage method" name="ContactPageStateService sendContactMessage should call postContactMessage method" time="0.006">
+    </testcase>
+    <testcase classname="ContactPageStateService sendContactMessage should call setErrorMessage method on error" name="ContactPageStateService sendContactMessage should call setErrorMessage method on error" time="0.026">
+    </testcase>
+    <testcase classname="ContactPageStateService resetState should reset state values to initial" name="ContactPageStateService resetState should reset state values to initial" time="0.022">
+    </testcase>
+  </testsuite>
+  <testsuite name="CountriesPageStateService" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:08" time="0.791" tests="7">
+    <testcase classname="CountriesPageStateService addCountry should add country into the signal array" name="CountriesPageStateService addCountry should add country into the signal array" time="0.035">
+    </testcase>
+    <testcase classname="CountriesPageStateService setListedCountries should set listedCountries signal" name="CountriesPageStateService setListedCountries should set listedCountries signal" time="0.006">
+    </testcase>
+    <testcase classname="CountriesPageStateService setErrorMessage should update state for errorMessage" name="CountriesPageStateService setErrorMessage should update state for errorMessage" time="0.005">
+    </testcase>
+    <testcase classname="CountriesPageStateService removeCountryFromListed should remove the country in listedCountries array" name="CountriesPageStateService removeCountryFromListed should remove the country in listedCountries array" time="0.005">
+    </testcase>
+    <testcase classname="CountriesPageStateService retrieveCountriesList should call setListedCountries on success response" name="CountriesPageStateService retrieveCountriesList should call setListedCountries on success response" time="0.007">
+    </testcase>
+    <testcase classname="CountriesPageStateService retrieveCountriesList should call setErrorMessage method on error" name="CountriesPageStateService retrieveCountriesList should call setErrorMessage method on error" time="0.024">
+    </testcase>
+    <testcase classname="CountriesPageStateService resetState should reset state values to initial" name="CountriesPageStateService resetState should reset state values to initial" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="ContactPageComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:06" time="3.474" tests="6">
+    <testcase classname="ContactPageComponent should create" name="ContactPageComponent should create" time="0.35">
+    </testcase>
+    <testcase classname="ContactPageComponent onSubmit should call contactPageStateService.sendContactMessage" name="ContactPageComponent onSubmit should call contactPageStateService.sendContactMessage" time="0.196">
+    </testcase>
+    <testcase classname="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setFirstName with form control value" name="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setFirstName with form control value" time="0.111">
+    </testcase>
+    <testcase classname="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setLastName with form control value" name="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setLastName with form control value" time="0.116">
+    </testcase>
+    <testcase classname="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setEmail with form control value" name="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setEmail with form control value" time="0.133">
+    </testcase>
+    <testcase classname="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setMessage with form control value" name="ContactPageComponent onFocusOutUpdateState should call contactPageStateService.setMessage with form control value" time="0.094">
+    </testcase>
+  </testsuite>
+  <testsuite name="AddCountryDialogComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:06" time="3.472" tests="4">
+    <testcase classname="AddCountryDialogComponent should create" name="AddCountryDialogComponent should create" time="0.285">
+    </testcase>
+    <testcase classname="AddCountryDialogComponent ngOnInit should call countriesPageStateService.retrieveCountriesList" name="AddCountryDialogComponent ngOnInit should call countriesPageStateService.retrieveCountriesList" time="0.111">
+    </testcase>
+    <testcase classname="AddCountryDialogComponent showDialog should change visible value to true" name="AddCountryDialogComponent showDialog should change visible value to true" time="0.076">
+    </testcase>
+    <testcase classname="AddCountryDialogComponent closeDialog should call countriesPageStateService.addCountryToProject on selected country formcontrol" name="AddCountryDialogComponent closeDialog should call countriesPageStateService.addCountryToProject on selected country formcontrol" time="0.049">
+    </testcase>
+  </testsuite>
+  <testsuite name="ContactPageHttpMockService" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:09" time="0.376" tests="1">
+    <testcase classname="ContactPageHttpMockService postContactMessage should return a response message" name="ContactPageHttpMockService postContactMessage should return a response message" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="CountriesPageHttpService" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:09" time="0.383" tests="1">
+    <testcase classname="CountriesPageHttpService getAllCountries should call http client get with url" name="CountriesPageHttpService getAllCountries should call http client get with url" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="CountriesPageComponent" errors="0" failures="0" skipped="0" timestamp="2025-04-16T10:56:06" time="3.935" tests="3">
+    <testcase classname="CountriesPageComponent should create" name="CountriesPageComponent should create" time="0.16">
+    </testcase>
+    <testcase classname="CountriesPageComponent navigatesToGoogleMap should call window.open with given link" name="CountriesPageComponent navigatesToGoogleMap should call window.open with given link" time="0.061">
+    </testcase>
+    <testcase classname="CountriesPageComponent navigatesToGoogleMap should not call window.open with wrong url" name="CountriesPageComponent navigatesToGoogleMap should not call window.open with wrong url" time="0.063">
     </testcase>
   </testsuite>
 </testsuites>
