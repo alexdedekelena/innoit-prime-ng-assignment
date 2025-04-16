@@ -1,0 +1,16 @@
+<div class="grid p-fluid justify-content-center gradient-background">
+  <div class="col-12 md:col-12 lg:col-12 text-center mb-4 mt-8">
+    <p class="mb-2 font-light text-xs text-gray-50 letter-spacing-lg">
+      PRICING PLANS
+    </p>
+    <h1 class="mb-2 text-gray-50 text-4xl">Get the Best Option Now</h1>
+    <p class="font-light text-gray-50 letter-spacing-sm">
+      The informative, and brief subheading that builds the interest around the
+      created product. The copy encourages user to discover it.
+    </p>
+  </div>
+
+  @for (pricingCardData of pricingCardList; track $index) {
+    <app-pricing-card [pricingCardData]="pricingCardData"></app-pricing-card>
+  }
+</div>

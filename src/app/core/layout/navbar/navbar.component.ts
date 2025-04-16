@@ -26,5 +26,10 @@ export class NavbarComponent {
       icon: 'pi pi-globe',
       route: '/countries',
     },
+    {
+      label: 'Pricing',
+      icon: 'pi pi-star',
+      route: '/pricing',
+    },
   ];
 }
