@@ -1,11 +1,7 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { ContactPageHttpMockService } from '../contact-page-http-mock.service';
+import { TestBed } from '@angular/core/testing';
 import { MessageService } from 'primeng/api';
-import { ContactPageResponse } from '../../interfaces/contact-page-response.interface';
-import { ContactMessageBody } from '../../interfaces/contact-message.interface';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { CountriesPageStateService } from './countries-page-state.service';
-import { count } from 'console';
 import { CountriesPageHttpService } from '../countries-page-http.service';
 import { CountrySummary } from '../../interfaces/country-summary.interface';
 
@@ -13,12 +9,6 @@ describe('CountriesPageStateService', () => {
   let service: CountriesPageStateService;
   let countriesPageHttpServiceMock: { getAllCountries: jest.Mock };
   let messageServiceMock: { add: jest.Mock };
-
-  const mockedResponse: ContactPageResponse = {
-    success: true,
-    message: 'sent',
-    body: {} as ContactMessageBody,
-  };
 
   const mockedCountry: CountrySummary = {
     continent: 'Europe',

@@ -4,6 +4,7 @@ import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { AddCountryDialogComponent } from './components/add-country-dialog/add-country-dialog.component';
 import { CountriesPageStateService } from '../../shared/services/state/countries-page-state.service';
+import { Toast } from 'primeng/toast';
 
 @Component({
   selector: 'app-countries-page',
@@ -11,6 +12,7 @@ import { CountriesPageStateService } from '../../shared/services/state/countries
     ButtonModule,
     TableModule,
     ToolbarModule,
+    Toast,
     AddCountryDialogComponent,
   ],
   templateUrl: './countries-page.component.html',
