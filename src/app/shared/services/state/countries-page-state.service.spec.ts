@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { MessageService } from 'primeng/api';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { CountriesPageStateService } from './countries-page-state.service';
 import { CountriesPageHttpService } from '../countries-page-http.service';
 import { CountrySummary } from '../../interfaces/country-summary.interface';
@@ -67,6 +67,13 @@ describe('CountriesPageStateService', () => {
     });
   });
 
+  describe('setErrorMessage', () => {
+    it('should update state for errorMessage', () => {
+      service['setErrorMessage']('newMessage');
+      expect(service.errorMessage()).toEqual('newMessage');
+    });
+  });
+
   describe('removeCountryFromListed', () => {
     it('should remove the country in listedCountries array', () => {
       service['setListedCountries']([mockedCountry]);
@@ -84,6 +91,16 @@ describe('CountriesPageStateService', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect((service as any).setListedCountries).toHaveBeenCalled();
     });
+
+    it('should call setErrorMessage method on error', waitForAsync(() => {
+      jest.spyOn(service as never, 'setErrorMessage');
+      countriesPageHttpServiceMock.getAllCountries.mockReturnValue(
+        throwError(() => 'error')
+      );
+      service.retrieveCountriesList();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      expect((service as any).setErrorMessage).toHaveBeenCalled();
+    }));
   });
 
   describe('resetState', () => {

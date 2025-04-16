@@ -1,8 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CountriesPageComponent } from './countries-page.component';
-import { signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CountriesPageStateService } from '../../shared/services/state/countries-page-state.service';
+import { MessageService } from 'primeng/api';
+import { Toast } from 'primeng/toast';
+
+// Toast Component have 'subscribe of undefined' issue when initialized
+// Use a Mock component instead to avoid errors out of scope this component
+@Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'p-toast',
+  template: '<div>MOCK TOAST</div>',
+})
+class MockToastComponent {}
 
 describe('CountriesPageComponent', () => {
   let component: CountriesPageComponent;
@@ -19,6 +30,9 @@ describe('CountriesPageComponent', () => {
     status: 'officially-assigned',
   };
 
+  const messageServiceStub = {
+    add: jest.fn(),
+  };
   const countriesPageStateServiceStub = {
     addedCountries: signal([mockedCountry]),
     listedCountries: signal([mockedCountry]),
@@ -43,8 +57,21 @@ describe('CountriesPageComponent', () => {
           provide: CountriesPageStateService,
           useValue: countriesPageStateServiceStub,
         },
+        {
+          provide: MessageService,
+          useValue: messageServiceStub,
+        },
       ],
-    }).compileComponents();
+    })
+      .overrideComponent(CountriesPageComponent, {
+        remove: {
+          imports: [Toast], // Remove the actual child import
+        },
+        add: {
+          imports: [MockToastComponent], // Add the mock child import
+        },
+      })
+      .compileComponents();
 
     fixture = TestBed.createComponent(CountriesPageComponent);
     component = fixture.componentInstance;
