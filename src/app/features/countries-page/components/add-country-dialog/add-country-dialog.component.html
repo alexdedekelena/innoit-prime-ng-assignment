@@ -1,6 +1,7 @@
 <p-button
   label="Add a country"
   icon="pi pi-plus"
+  data-cy="add-country-button"
   (click)="showDialog()"
 ></p-button>
 <p-dialog
@@ -20,6 +21,7 @@
         [showClear]="true"
         placeholder="Select a Country"
         class="w-full md:w-56"
+        data-cy="country-select"
       >
         <ng-template #selectedItem let-selectedOption>
           <div class="flex items-center gap-2">
@@ -30,14 +32,20 @@
         <ng-template let-country #item>
           <div class="flex items-center gap-2">
             <img [src]="country.flag" style="width: 18px" />
-            <div>{{ country.name }}</div>
+            <div>
+              {{ country.name }}
+            </div>
           </div>
         </ng-template>
       </p-select>
     </form>
     <div class="flex justify-content-between flex-wrap">
       <p-button label="Cancel" severity="secondary" (click)="visible = false" />
-      <p-button label="Save" (click)="closeDialog()" />
+      <p-button
+        label="Add"
+        data-cy="add-selected-button"
+        (click)="closeDialog()"
+      />
     </div>
   </div>
 </p-dialog>

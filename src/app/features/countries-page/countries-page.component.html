@@ -22,7 +22,11 @@
       </div>
     </div>
     <div class="col-9">
-      <p-table [value]="countries()" responsiveLayout="scroll">
+      <p-table
+        [value]="countries()"
+        responsiveLayout="scroll"
+        data-cy="countries-table"
+      >
         <ng-template pTemplate="header">
           <tr>
             <th>Country</th>
