@@ -1,0 +1,48 @@
+<div class="col-12 md:col-12 lg:col-4 w-full">
+  <div class="surface-card shadow-2 border-round p-4 h-full m-3">
+    <div class="text-center mb-3">
+      <p-button
+        icon="pi pi-star-fill text-xl"
+        [rounded]="true"
+        severity="secondary"
+        class="text-primary"
+      />
+      <div class="text-xl mt-4 mb-2 text-primary">
+        {{ pricingCardData()?.name || "Option Name" }}
+      </div>
+      <div class="text-4xl font-bold mb-3">
+        {{
+          pricingCardData()?.price || 9.99
+            | currency: "USD" : "symbol" : "1.0-0"
+        }}/month
+      </div>
+      <small class="text-color-secondary">Good starting point</small>
+      @if (pricingCardData()?.isPopular) {
+        <div class="mt-2">
+          <p-badge value="Most Popular"></p-badge>
+        </div>
+      }
+    </div>
+    <ul class="list-none p-0 m-0">
+      @for (feature of pricingCardData()?.features; track $index) {
+        <li class="flex align-items-center py-2">
+          @if (feature.included) {
+            <i class="pi pi-check-circle text-green-500 mr-2"></i>
+          } @else {
+            <i class="pi pi-minus-circle text-gray-500 mr-2"></i>
+          }
+          <span>{{ feature.name }}</span>
+        </li>
+      }
+    </ul>
+    @if (pricingCardData()?.isPopular) {
+      <p-button label="Get Started" class="w-full mt-4 display-grid"></p-button>
+    } @else {
+      <p-button
+        label="Get Started"
+        class="p-button-outlined w-full mt-4 display-grid"
+        severity="secondary"
+      ></p-button>
+    }
+  </div>
+</div>
