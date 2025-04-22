@@ -4,5 +4,3 @@
 @import "assets/styles/base/body-base.css";
 @import "assets/styles/base/letter-spacing.css";
 @import "assets/styles/layout/display-grid.css";
-/* TODO: check how to locally download and import the file font instead of CDN */
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
