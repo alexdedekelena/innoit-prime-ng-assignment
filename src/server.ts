@@ -1,5 +1,25 @@
+// import { CommonEngine } from '@angular/ssr/node';
+// import { render } from '@netlify/angular-runtime/common-engine.mjs';
+
+// const commonEngine = new CommonEngine();
+
+// export async function netlifyCommonEngineHandler(
+//   request: Request,
+//   context: any
+// ): Promise<Response> {
+//   // Example API endpoints can be defined here.
+//   // Uncomment and define endpoints as necessary.
+//   // const pathname = new URL(request.url).pathname;
+//   // if (pathname === '/api/hello') {
+//   //   return Response.json({ message: 'Hello from the API' });
+//   // }
+
+//   return await render(commonEngine);
+// }
+
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine, isMainModule } from '@angular/ssr/node';
+import { render } from '@netlify/angular-runtime/common-engine.mjs';
 import express from 'express';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,6 +31,22 @@ const indexHtml = join(serverDistFolder, 'index.server.html');
 
 const app = express();
 const commonEngine = new CommonEngine();
+
+export async function netlifyCommonEngineHandler(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  request: Request,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+  context: any
+): Promise<Response> {
+  // Example API endpoints can be defined here.
+  // Uncomment and define endpoints as necessary.
+  // const pathname = new URL(request.url).pathname;
+  // if (pathname === '/api/hello') {
+  //   return Response.json({ message: 'Hello from the API' });
+  // }
+
+  return await render(commonEngine);
+}
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -31,8 +67,8 @@ app.get(
   '**',
   express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html'
-  }),
+    index: 'index.html',
+  })
 );
 
 /**
