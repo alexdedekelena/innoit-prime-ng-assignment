@@ -5,6 +5,9 @@ It contains some angular-started features based on an existing project: [Angular
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
 
+## App Running Link
+The App is published using [Netlify](https://www.netlify.com/) in the following link: https://innoit-prime-ng-assignment.netlify.app/home
+
 ## Installation issues found at 22 April, 2025
 There is a known issue with PrimeNg @angular/animations dependencies version: https://github.com/primefaces/primeng/issues/18116
 To skip these issue until solved, please run this command:
