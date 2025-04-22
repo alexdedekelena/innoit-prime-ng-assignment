@@ -1,4 +1,4 @@
 [build]
-command = "ng build"
+command = "npm run force-build"
 functions = "netlify/functions"
 publish = "dist/innoit-prime-ng-assignment/browser"

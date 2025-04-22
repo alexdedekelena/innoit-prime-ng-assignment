@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:prod": "ng build --configuration production",
     "build:prod:stats": "ng build --configuration production --stats-json",
+    "force-build": "npm i --force && ng build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand",
